@@ -2,6 +2,7 @@
   "name": "televisionbinge",
   "version": "0.1.0",
   "proxy": "http://localhost:3000",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "bootstrap": "^4.1.3",

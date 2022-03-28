@@ -6,7 +6,7 @@ using TelevisionBinge.Models;
 
 namespace TelevisionBinge.Data
 {
-    public class SearchRepository
+    public class DataRepository
     {
         private readonly HttpClient _httpClient;
         private readonly string _baseURL = "https://imdb-api.com/en/API/";

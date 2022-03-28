@@ -9,7 +9,7 @@ export class NavMenu extends Component {
       <header>
         <Navbar className="navbar-expand-sm navbar-toggleable-sm mb-3" light>
           <Container>
-            <NavbarBrand tag={Link} to="/h">TelevisionBinge</NavbarBrand>
+            <NavbarBrand tag={Link} to="">TelevisionBinge</NavbarBrand>
           </Container>
         </Navbar>
       </header>
