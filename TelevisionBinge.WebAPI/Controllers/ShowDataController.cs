@@ -19,7 +19,7 @@ namespace TelevisionBinge.WebAPI.Controllers
         private readonly ILogger<ShowDataController> _logger;
         private readonly HttpClient _httpClient = new HttpClient();
         private readonly string _baseURL = "https://imdb-api.com/en/API/";
-        private readonly string _apiKey = "k_5nk9nf3m";
+        private readonly string _apiKey = "k_2vr16z7m";//"k_5nk9nf3m";
 
         public ShowDataController(ILogger<ShowDataController> logger)
         {
@@ -53,7 +53,7 @@ namespace TelevisionBinge.WebAPI.Controllers
             return new TelevisionShowData
             {
                 Title = result,
-                SeasonEpisodeDataList = episodeData.OrderBy(e => Int32.Parse(e.Year)).ToList()
+                SeasonEpisodeDataList = episodeData.OrderBy(e => DateTime.Parse(e.Episodes[0].Released)).ToList()
             };
         }
 
