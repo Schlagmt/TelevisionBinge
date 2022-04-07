@@ -1,6 +1,61 @@
 ﻿<div id="show" v-cloak>
     <div class="container-lg">
-        
+        <div v-if="loading">
+            <div class="row d-flex justify-content-center">
+                <img src="@Url.Content("~/images/loading.gif")" alt="loading" />
+            </div>
+        </div>
+        <div v-else>
+            <div class="row mb-3">
+                <div class="card" id="show-info-card">
+                    <img class="card-img-top" :src="titleData.image" alt="image" id="show-info-card-img">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ titleData.fullTitle }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ titleData.awards }}</h6>
+                        <p class="card-text">{{ titleData.plot }}</p>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ titleData.genres }}</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            IMDB: {{ titleData.ratings.imDb }} | RottenTomatoes: {{ titleData.ratings.rottenTomatoes }}
+                        </h6>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="card">
+                    <div class="card-body">
+                        D3
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Episode Guide
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Posters
+                              </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

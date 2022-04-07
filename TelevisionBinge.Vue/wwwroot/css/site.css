@@ -89,3 +89,11 @@ form {
 [v-cloak] {
     display: none;
 }
+
+#show-info-card {
+    flex-direction: row;
+}
+
+#show-info-card-img {
+    width: 30%;
+}

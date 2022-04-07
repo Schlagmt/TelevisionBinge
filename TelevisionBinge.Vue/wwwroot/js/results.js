@@ -34,10 +34,9 @@
                 error: function (error) {
                     console.log(error);
                 }
+            }).done(() => {
+                v.loading = false;
             });
-
-            setTimeout(() => { v.loading = false; }, 2000);
-            
         }
 
 	}

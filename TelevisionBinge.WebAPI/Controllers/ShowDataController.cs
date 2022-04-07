@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using TelevisionBinge.WebAPI.Models;
@@ -30,6 +32,29 @@ namespace TelevisionBinge.WebAPI.Controllers
             var response = await ExecuteWebAPICall(new Uri(_baseURL + "SearchSeries/" + _apiKey + "/" + search));
             var result = JsonConvert.DeserializeObject<SearchData>(await response.Content.ReadAsStringAsync());
             return result;
+        }
+
+        [HttpGet("GetTelevisionShowData/{id}")]
+        public async Task<TelevisionShowData> GetTelevisionShowData(string id)
+        {
+            var response = await ExecuteWebAPICall(new Uri(_baseURL + "Title/" + _apiKey + "/" + id + "/Posters,Ratings,"));
+            var result = JsonConvert.DeserializeObject<TitleData>(await response.Content.ReadAsStringAsync());
+
+            var episodeData = new List<SeasonEpisodeData>();
+            var tasks = result.TvSeriesInfo.Seasons.Select(async season =>
+            {
+                var responseEpisodeData = await ExecuteWebAPICall(new Uri(_baseURL + "SeasonEpisodes/" + _apiKey + "/" + id + "/" + season));
+                var resultEpisodeData = JsonConvert.DeserializeObject<SeasonEpisodeData>(await responseEpisodeData.Content.ReadAsStringAsync());
+
+                episodeData.Add(resultEpisodeData);
+            });
+            await Task.WhenAll(tasks);
+
+            return new TelevisionShowData
+            {
+                Title = result,
+                SeasonEpisodeDataList = episodeData
+            };
         }
 
         private async Task<HttpResponseMessage> ExecuteWebAPICall(Uri url)
