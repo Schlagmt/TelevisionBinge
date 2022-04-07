@@ -1,0 +1,45 @@
+﻿<div id="results" v-cloak>
+    <div class="container-lg">
+        <div class="row mb-3">
+            <div class="card" id="search-term">
+                <div class="card-body">
+                    Search: "{{ searchTerm }}"
+                </div>
+            </div>
+        </div>
+        <div v-if="loading">
+            <div class="row d-flex justify-content-center">
+                <img src="@Url.Content("~/images/loading.gif")" alt="loading"/>
+            </div>
+        </div>
+        <div v-else-if="showResults.length > 0">
+            <div class="row">
+                <div class="col-4" id="show-card" v-for="show in showResults">
+                    <div class="card">
+                        <img class="card-img-top" :src="show.image" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ show.title }}</h5>
+                            <p class="card-text">{{ show.description }}</p>
+                            <a :href="'@Url.Action("Show", "tvb")?id=' + show.id" class="btn btn-primary">Details...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div v-else>
+            <div class="row d-flex justify-content-center">
+                <img src="@Url.Content("~/images/noResults.webp")" alt="loading"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="~/js/results.js" asp-append-version="true"></script>
+}
+
+<script>
+    var searchTerm = "@ViewBag.Search";
+    var webAPIUrl = "@ViewBag.WebAPIUrl";
+</script>
