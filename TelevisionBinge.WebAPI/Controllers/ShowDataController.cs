@@ -53,7 +53,7 @@ namespace TelevisionBinge.WebAPI.Controllers
             return new TelevisionShowData
             {
                 Title = result,
-                SeasonEpisodeDataList = episodeData
+                SeasonEpisodeDataList = episodeData.OrderBy(e => Int32.Parse(e.Year)).ToList()
             };
         }
 

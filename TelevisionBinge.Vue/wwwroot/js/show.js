@@ -18,6 +18,39 @@
 		v.getShowData();
     },
 
+    computed: {
+
+        episodeRatings: function () {
+            let v = this;
+
+            var ratings = [];
+            _.forEach(v.seasonData, season => {
+                _.forEach(season.episodes, episode => {
+                    ratings.push({
+                        "episode": episode.seasonNumber + "-" + episode.episodeNumber,
+                        "rating": parseFloat(episode.ratingValue)
+                    });
+                });
+            });
+
+            return ratings;
+        },
+
+        d3: function () {
+            let v = this;
+
+            return LineChart(v.episodeRatings, {
+                x: d => d.episode,
+                y: d => d.rating,
+                yLabel: "IMDB Rating",
+                width,
+                height: 500,
+                color: "steelblue"
+            })
+        }
+
+    },
+
 	methods: {
 
         getShowData: async function () {
