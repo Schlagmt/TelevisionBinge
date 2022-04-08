@@ -92,12 +92,19 @@ form {
 
 #show-info-card {
     flex-direction: row;
+    padding-right: 0;
+    padding-left: 0;
 }
 
 #show-info-card-img {
-    width: 30%;
+    width: 20%;
 }
 
 #show-info-card-img-episode {
     width: 20%;
+}
+
+#accordionExample {
+    padding-right: 0;
+    padding-left: 0;
 }

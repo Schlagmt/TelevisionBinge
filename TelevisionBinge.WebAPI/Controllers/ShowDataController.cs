@@ -46,6 +46,7 @@ namespace TelevisionBinge.WebAPI.Controllers
                 var responseEpisodeData = await ExecuteWebAPICall(new Uri(_baseURL + "SeasonEpisodes/" + _apiKey + "/" + id + "/" + season));
                 var resultEpisodeData = JsonConvert.DeserializeObject<SeasonEpisodeData>(await responseEpisodeData.Content.ReadAsStringAsync());
 
+                resultEpisodeData.Season = Int32.Parse(season);
                 episodeData.Add(resultEpisodeData);
             });
             await Task.WhenAll(tasks);
@@ -53,7 +54,7 @@ namespace TelevisionBinge.WebAPI.Controllers
             return new TelevisionShowData
             {
                 Title = result,
-                SeasonEpisodeDataList = episodeData.OrderBy(e => DateTime.Parse(e.Episodes[0].Released)).ToList()
+                SeasonEpisodeDataList = episodeData.OrderBy(e => e.Season).ToList()
             };
         }
 

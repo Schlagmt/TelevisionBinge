@@ -27,7 +27,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row mb-3">
                 <div class="accordion" id="accordionExample">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingOne">
@@ -50,7 +50,7 @@
                                                     <img class="card-img-top" :src="episode.image" alt="image" id="show-info-card-img-episode">
                                                     <div class="card-body">
                                                         <h5 class="card-title">{{ episode.title }}</h5>
-                                                        <h6 class="card-subtitle mb-2 text-muted">Episode - {{ episode.episodeNumber }} | Release Date - {{ episode.release }}</h6>
+                                                        <h6 class="card-subtitle mb-2 text-muted">Episode - {{ episode.episodeNumber }} | Release Date - {{ episode.released }}</h6>
                                                         <p class="card-text">{{ episode.plot }}</p>
                                                         <h6 class="card-subtitle mb-2 text-muted">
                                                             Rating: {{ episode.imDbRating }} | Votes: {{ episode.imDbRatingCount }}
@@ -78,6 +78,17 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 g-4 mb-3">
+                <div class="col" id="show-card" v-for="show in titleData.similars">
+                    <div class="card h-100">
+                        <img class="card-img-top" :src="show.image" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ show.title }}</h5>
+                            <a :href="'@Url.Action("Show", "tvb")?id=' + show.id" class="btn btn-primary">Details...</a>
                         </div>
                     </div>
                 </div>

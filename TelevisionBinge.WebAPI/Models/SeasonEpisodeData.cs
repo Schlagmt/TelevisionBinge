@@ -6,6 +6,7 @@ namespace TelevisionBinge.WebAPI.Models
     {
         public string IMDbId { get; set; }
         public string Title { get; set; }
+        public int Season { get; set; }
         public string FullTitle { get; set; }
         public string Type { get; set; }
         public string Year { get; set; }
