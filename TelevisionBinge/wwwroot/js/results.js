@@ -27,6 +27,11 @@
                 contentType: "application/json; charset=utf-8",
                 type: "GET",
                 success: function (data) {
+                    if (data.errorMessage) {
+                        alert("This is a dev app (API is limited): " + data.errorMessage);
+                        return;
+                    }
+
                     v.showResults = data.results;
                 },
                 error: function (error) {

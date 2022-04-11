@@ -8,15 +8,21 @@
         <div v-else>
             <div class="row mb-3">
                 <div class="card" id="show-info-card">
-                    <img class="card-img-top" :src="titleData.image" alt="image" id="show-info-card-img">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ titleData.fullTitle }}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">{{ titleData.awards }}</h6>
-                        <p class="card-text">{{ titleData.plot }}</p>
-                        <h6 class="card-subtitle mb-2 text-muted">{{ titleData.genres }}</h6>
-                        <h6 class="card-subtitle mb-2 text-muted">
-                            IMDB: {{ titleData.ratings.imDb }} | RottenTomatoes: {{ titleData.ratings.rottenTomatoes }}
-                        </h6>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <img class="img-fluid rounded-start" :src="titleData.image" alt="image">
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ titleData.fullTitle }}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">{{ titleData.awards }}</h6>
+                                <p class="card-text">{{ titleData.plot }}</p>
+                                <h6 class="card-subtitle mb-2 text-muted">{{ titleData.genres }}</h6>
+                                <h6 class="card-subtitle mb-2 text-muted">
+                                    IMDB: {{ titleData.ratings.imDb }} | RottenTomatoes: {{ titleData.ratings.rottenTomatoes }}
+                                </h6>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -47,14 +53,20 @@
                                         <div :id="'collapseSeason-'+ index" class="accordion-collapse collapse" aria-labelledby="'heading-' + index" data-bs-parent="#accordionExample2">
                                             <div class="accordion-body">
                                                 <div class="card mb-3" id="show-info-card" v-for="episode in season.episodes">
-                                                    <img class="card-img-top" :src="episode.image" alt="image" id="show-info-card-img-episode">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">{{ episode.title }}</h5>
-                                                        <h6 class="card-subtitle mb-2 text-muted">Episode - {{ episode.episodeNumber }} | Release Date - {{ episode.released }}</h6>
-                                                        <p class="card-text">{{ episode.plot }}</p>
-                                                        <h6 class="card-subtitle mb-2 text-muted">
-                                                            Rating: {{ episode.imDbRating }} | Votes: {{ episode.imDbRatingCount }}
-                                                        </h6>
+                                                    <div class="row">
+                                                        <div class="col-sm-4">
+                                                            <img class="img-fluid rounded-start" :src="episode.image" alt="image">
+                                                        </div>
+                                                        <div class="col-sm-8">
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">{{ episode.title }}</h5>
+                                                                <h6 class="card-subtitle mb-2 text-muted">Episode - {{ episode.episodeNumber }} | Release Date - {{ episode.released }}</h6>
+                                                                <p class="card-text">{{ episode.plot }}</p>
+                                                                <h6 class="card-subtitle mb-2 text-muted">
+                                                                    Rating: {{ episode.imDbRating }} | Votes: {{ episode.imDbRatingCount }}
+                                                                </h6>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
