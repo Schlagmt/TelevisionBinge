@@ -9,14 +9,10 @@
 	},
 
 	mounted: async function () {
-		let v = this;
+        let v = this;
 
         v.getTop250();
         v.getMostPopular();
-    },
-
-    computed: {
-
     },
 
 	methods: {
@@ -56,6 +52,20 @@
                 }
             });
         },
+
+        rankingColors: function (value) {
+            let v = this;
+
+            if (value.includes("+")) {
+                return "up";
+            }
+            else if (value.includes("-")) {
+                return "down";
+            }
+            else {
+                return "neither";
+            }
+        }
 
 	}
 

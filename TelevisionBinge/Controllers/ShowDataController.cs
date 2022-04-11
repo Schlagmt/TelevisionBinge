@@ -66,6 +66,13 @@ namespace TelevisionBinge.Controllers
             return result;
         }
 
+        public async Task<AdvancedSearchData> GetShowsByGenreData( [FromBody] List<string> genre)
+        {
+            var response = await ExecuteWebAPICall(new Uri(_baseURL + "AdvanceSearch/" + _apiKey + "?title_type=tv_series&genres=" + string.Join(",", genre)));
+            var result = JsonConvert.DeserializeObject<AdvancedSearchData>(await response.Content.ReadAsStringAsync());
+            return result;
+        }
+
         private async Task<HttpResponseMessage> ExecuteWebAPICall(Uri url)
         {
             HttpRequestMessage requestMessage = new HttpRequestMessage();

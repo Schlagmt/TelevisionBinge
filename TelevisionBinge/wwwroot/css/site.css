@@ -108,3 +108,15 @@ form {
     padding-right: 0;
     padding-left: 0;
 }
+
+#rankColors {
+    float: right;
+}
+
+#rankColorsGreen {
+    color: green;
+}
+
+#rankColorsRed {
+    color: red;
+}

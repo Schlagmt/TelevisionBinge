@@ -6,17 +6,29 @@
             </div>
         </div>
         <div v-else>
-            <div class="row">
-                <div class="col-6">
-                    <ul class="list-group">
-                        <li class="list-group-item active">Top 250 Shows</li>
-                        <li class="list-group-item" v-for="(show,index) in top250">{{ show.rank }}. {{ show.title }} ({{ show.year }})</li>
-                    </ul>
-                </div>
-                <div class="col-6">
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                <div class="col">
                     <ul class="list-group">
                         <li class="list-group-item active">Most Popular Shows Now</li>
-                        <li class="list-group-item" v-for="(show,index) in mostPopular">{{ show.rank }}. {{ show.title }} ({{ show.year }})</li>
+                        <li class="list-group-item" v-for="(show,index) in mostPopular">
+                            {{ show.rank }}. <a :href="'@Url.Action("Show", "TVB")?id=' + show.id" class="text-decoration-none text-reset">{{ show.title }}</a> ({{ show.year }})
+                            <div id="rankColors">
+                                <div v-if="show.rankUpDown.includes('+')" id="rankColorsGreen">
+                                    <i id="rankColorsGreen" class="fa fa-angle-up"></i> <strong>{{show.rankUpDown}}</strong>
+                                </div>
+                                <div v-else-if="show.rankUpDown.includes('-')" id="rankColorsRed">
+                                    <i id="rankColorsRed" class="fa fa-angle-down"></i> <strong>{{show.rankUpDown}}</strong>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <ul class="list-group">
+                        <li class="list-group-item active">Top 250 Shows</li>
+                        <li class="list-group-item" v-for="(show,index) in top250">
+                                {{ show.rank }}. <a :href="'@Url.Action("Show", "TVB")?id=' + show.id" class="text-decoration-none text-reset">{{ show.title }}</a> ({{ show.year }})
+                        </li>
                     </ul>
                 </div>
             </div>
