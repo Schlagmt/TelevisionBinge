@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace TelevisionBinge.Vue.Controllers
+namespace TelevisionBinge.Controllers
 {
     public class TVBController : Controller
     {

@@ -6,9 +6,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using TelevisionBinge.Vue.Models;
+using TelevisionBinge.Models;
 
-namespace TelevisionBinge.Vue.Controllers
+namespace TelevisionBinge.Controllers
 {
     public class ShowDataController : Controller
     {
@@ -50,6 +50,20 @@ namespace TelevisionBinge.Vue.Controllers
                 Title = result,
                 SeasonEpisodeDataList = episodeData.OrderBy(e => e.Season).ToList()
             };
+        }
+
+        public async Task<Top250Data> GetTop250ShowsData()
+        {
+            var response = await ExecuteWebAPICall(new Uri(_baseURL + "Top250TVs/" + _apiKey));
+            var result = JsonConvert.DeserializeObject<Top250Data>(await response.Content.ReadAsStringAsync());
+            return result;
+        }
+
+        public async Task<MostPopularData> GetMostPopularShowsData()
+        {
+            var response = await ExecuteWebAPICall(new Uri(_baseURL + "MostPopularTVs/" + _apiKey));
+            var result = JsonConvert.DeserializeObject<MostPopularData>(await response.Content.ReadAsStringAsync());
+            return result;
         }
 
         private async Task<HttpResponseMessage> ExecuteWebAPICall(Uri url)

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace TelevisionBinge.Vue.Models
+namespace TelevisionBinge.Models
 {
     public class TelevisionShowData
     {

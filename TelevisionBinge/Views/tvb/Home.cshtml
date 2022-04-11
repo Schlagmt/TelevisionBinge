@@ -1,6 +1,26 @@
 ﻿<div id="home" v-cloak>
     <div class="container-lg">
-
+        <div v-if="loading">
+            <div class="row d-flex justify-content-center">
+                <img src="@Url.Content("~/images/loading.gif")" alt="loading"/>
+            </div>
+        </div>
+        <div v-else>
+            <div class="row">
+                <div class="col-6">
+                    <ul class="list-group">
+                        <li class="list-group-item active">Top 250 Shows</li>
+                        <li class="list-group-item" v-for="(show,index) in top250">{{ show.rank }}. {{ show.title }} ({{ show.year }})</li>
+                    </ul>
+                </div>
+                <div class="col-6">
+                    <ul class="list-group">
+                        <li class="list-group-item active">Most Popular Shows Now</li>
+                        <li class="list-group-item" v-for="(show,index) in mostPopular">{{ show.rank }}. {{ show.title }} ({{ show.year }})</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
