@@ -5,7 +5,8 @@
 	data: {
         loading: null,
         top250: [],
-        mostPopular: []
+        mostPopular: [],
+        searchTerm: null
 	},
 
 	mounted: async function () {
@@ -15,7 +16,15 @@
         v.getMostPopular();
     },
 
-	methods: {
+    methods: {
+
+        search: function () {
+            let v = this;
+
+            if (v.searchTerm) {
+                window.location = '/TVB/Results?search=' + v.searchTerm;
+            }
+        },
 
         getTop250: async function () {
             let v = this;

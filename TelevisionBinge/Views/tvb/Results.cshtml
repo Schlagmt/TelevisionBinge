@@ -1,11 +1,10 @@
 ﻿<div id="results" v-cloak>
     <div class="container-lg">
         <div class="row mb-3">
-            <div class="card" id="search-term">
-                <div class="card-body">
-                    Search: "{{ searchTerm }}"
-                </div>
-            </div>
+            <form class="d-flex">
+                <input id="searchbox" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" v-model="searchTerm">
+                <button id="searchSubmit" class="btn btn-light my-2 my-sm-0" type="button" v-on:click="search()">Search</button>
+            </form>
         </div>
         <div v-if="loading">
             <div class="row d-flex justify-content-center">
