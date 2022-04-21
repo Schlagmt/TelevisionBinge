@@ -52,7 +52,7 @@
                                                         <img class="img-fluid rounded-start" :src="episode.image" alt="image">
                                                     </div>
                                                     <div class="col-sm-8">
-                                                        <div class="card-body">
+                                                        <div class="card-body" id="episode-card">
                                                             <h5 class="card-title">{{ episode.title }}</h5>
                                                             <h6 class="card-subtitle mb-2 text-muted">Episode - {{ episode.episodeNumber }} | Release Date - {{ episode.released }}</h6>
                                                             <p class="card-text">{{ episode.plot }}</p>
@@ -79,9 +79,8 @@
                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             <div class="col-2" id="show-card" v-for="poster in titleData.posters.posters">
-                                <div class="card">
-                                    <img class="card-img-top" :src="poster.link" alt="poster">
-                                </div>
+                                <img class="img-fluid" :src="poster.link" alt="poster">
+                                <p></p>
                             </div>
                         </div>
                     </div>
@@ -89,11 +88,11 @@
             </div>
         </div>
         <div class="row row-cols-1 row-cols-md-4 g-4 mb-3">
-            <div class="col" id="show-card" v-for="show in titleData.similars">
+            <div class="col" v-for="show in titleData.similars">
                 <div class="card h-100">
                     <img class="card-img-top" :src="show.image" alt="Card image cap">
-                    <div class="card-body">
-                        <a id="show-link" :href="'@Url.Action("Show", "TVB")?id=' + show.id" class="btn btn-primary">{{ show.title }}</a>
+                    <div class="card-body" id="results-show-card">
+                        <a id="show-link" :href="'@Url.Action("Show", "TVB")?id=' + show.id" class="btn btn-light">{{ show.title }}</a>
                     </div>
                 </div>
             </div>

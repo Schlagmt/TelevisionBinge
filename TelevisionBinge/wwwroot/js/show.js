@@ -57,7 +57,7 @@
             v.LineChart(data, {
                 x: d => d.episode,
                 y: d => d.value,
-                yLabel: "IMDB Rating",
+                yLabel: "IMDB Episode Rating",
                 color: "steelblue"
             });
         },
@@ -102,7 +102,7 @@
             color = "currentColor", // stroke color of line
             strokeLinecap = "round", // stroke line cap of the line
             strokeLinejoin = "round", // stroke line join of the line
-            strokeWidth = 1.5, // stroke width of line, in pixels
+            strokeWidth = 3, // stroke width of line, in pixels
             strokeOpacity = 1, // stroke opacity of line
         } = {}) {
             // Compute values.
@@ -114,7 +114,7 @@
 
             // Compute default domains.
             if (xDomain === undefined) xDomain = d3.extent(X);
-            if (yDomain === undefined) yDomain = [d3.min(Y) - 1, 10];
+            if (yDomain === undefined) yDomain = [d3.min(Y) - .5, 10];
 
             // Construct scales and axes.
             const xScale = xType(xDomain, xRange);
@@ -135,9 +135,9 @@
                 .attr("viewBox", [0, 0, width, height])
                 .attr("style", "max-width: 100%; height: auto; height: intrinsic;");
 
-            svg.append("g")
-                .attr("transform", `translate(0,${height - marginBottom})`)
-                .call(xAxis);
+            //svg.append("g")
+            //    .attr("transform", `translate(0,${height - marginBottom})`)
+            //    .call(xAxis);
 
             svg.append("g")
                 .attr("transform", `translate(${marginLeft},0)`)
@@ -162,8 +162,7 @@
                 .attr("y2", 0)
                 .selectAll("stop")
                 .data([
-                    { offset: (height/10) * 1, color: "green" },
-                    { offset: (height/10) * 1, color: "yellow" }
+                    { offset: (height / 10) * 1, color: "#ff451c" }
                 ])
                 .join("stop")
                 .attr("offset", d => d.offset)

@@ -2,10 +2,6 @@
     background-color: #ff451c;
 }
 
-#search-term {
-    width: 100%;
-}
-
 #show-card {
     float: left;
 }
@@ -22,24 +18,6 @@
     color: white !important;
     font-weight: 500;
     border: 0;
-}
-
-#show-info-card {
-    flex-direction: row;
-    padding-right: 0;
-    padding-left: 0;
-    background-color: #5c1532 !important;
-    color: white !important;
-    font-weight: 500;
-    border: 0;
-}
-
-#show-info-card-img {
-    width: 20%;
-}
-
-#show-info-card-img-episode {
-    width: 20%;
 }
 
 #accordionExample {
@@ -65,13 +43,8 @@
     color: red;
 }
 
-#searchSubmit {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-}
-
 @media (min-width: 700px) {
-    #home,#results,#show {
+    #home, #results, #show {
         background-image: url("../images/homepage.webp");
         background-repeat: no-repeat;
         background-size: 100%;
@@ -84,6 +57,7 @@
         padding-bottom: 22em;
     }
 }
+
 @media (max-width: 700px) {
     #home, #results, #show {
         background-image: url("../images/homepage.webp");
@@ -132,6 +106,13 @@
     border: 0;
 }
 
+#episode-info-card {
+    background-color: #7b1b3b !important;
+    color: white !important;
+    font-weight: 500;
+    border: 0;
+}
+
 #show-link {
     background-color: #410f2a !important;
     color: white !important;
@@ -139,4 +120,16 @@
     border: 0;
     padding: 0;
     font-size: 1em;
+}
+
+.accordion-button::after, .accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
+}
+
+.accordion-button:focus {
+    border-color: #ff451c;
+}
+
+.card {
+    border: 0px !important;
 }

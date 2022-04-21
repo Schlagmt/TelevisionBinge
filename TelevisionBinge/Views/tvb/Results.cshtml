@@ -11,7 +11,7 @@
                 <div class="card h-100">
                     <img class="card-img-top" :src="show.image" alt="Card image cap">
                     <div id="results-show-card" class="card-body">
-                        <a id="show-link" :href="'@Url.Action("Show", "TVB")?id=' + show.id" class="btn btn-primary">{{ show.title }}</a>
+                        <a id="show-link" :href="'@Url.Action("Show", "TVB")?id=' + show.id" class="btn btn-light">{{ show.title }}</a>
                         <p class="card-text">{{ show.description }}</p>
                     </div>
                 </div>
