@@ -1,5 +1,5 @@
 ﻿<div id="show" v-cloak>
-    <div class="container-lg">
+    <div id="show-container" class="container-lg">
         <div class="row mb-3">
             <div class="card" id="show-info-card">
                 <div class="row">
@@ -78,9 +78,10 @@
                     </h2>
                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                            <div class="col-2" id="show-card" v-for="poster in titleData.posters.posters">
-                                <img class="img-fluid" :src="poster.link" alt="poster">
-                                <p></p>
+                            <div class="row row-cols-1 row-cols-md-6 g-4 mb-3">
+                                <div class="col" v-for="poster in titleData.posters.posters">
+                                    <img class="img-fluid" :src="poster.link" alt="poster">
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -54,7 +54,7 @@
 
     #home-info {
         padding-top: 19em;
-        padding-bottom: 22em;
+        padding-bottom: 30em;
     }
 }
 
@@ -69,7 +69,11 @@
 
     #home-info {
         padding-top: 19em;
-        padding-bottom: 17em;
+        padding-bottom: 23em;
+    }
+
+    #results-container, #home-container, #show-container {
+        width: 80%
     }
 }
 
@@ -84,6 +88,8 @@
     color: white !important;
     font-weight: 500;
     border: 0;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
 }
 
 #search-input {
@@ -107,7 +113,7 @@
 }
 
 #episode-info-card {
-    background-color: #7b1b3b !important;
+    background-color: #5a1631 !important;
     color: white !important;
     font-weight: 500;
     border: 0;
